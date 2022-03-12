@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="93ac7da2-b48e-423d-b4d9-caf7c9d77a05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/Comida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/Ingrediente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/Recipiente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/values/IdComida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/values/IdIngrediente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/comida/values/IdRecipiente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/Comprador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/Destinatario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/Factura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/Orden.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/Pedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/CVV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/DatosEnvio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/Dinero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/Direccion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/EstadoPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/Fecha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/FechaVencimiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/IdComprador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/IdDestinatario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/IdFactura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/IdOrden.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/IdPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/MetodoPago.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/NumeroTarjeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/Tarjeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/pedido/values/TipoFactura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/Mochila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/Repartidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/Vehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/Zona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/values/IdMochila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/values/IdRepartidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/values/IdVehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/values/IdZona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/repartidor/values/Velocidad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/Ciudad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/DatosComida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/DatosPersona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/Descripcion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/Dimensiones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/Nombre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/NombrePersona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/sofka/domain/restaurante/values/Telefono.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="26D36dVIUzwjMg4OzD1c6S7HjiB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="co.com.sofka.domain.restaurante.cliente" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="co.com.sofka.domain.restaurante.pedido.values" />
+      <recent name="co.com.sofka.domain.restaurante.values" />
+      <recent name="co.com.sofka.domain.restaurante.pedido" />
+      <recent name="co.com.sofka.domain.restaurante.generic" />
+      <recent name="co.com.sofka.domain.restaurante.comida.values" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93ac7da2-b48e-423d-b4d9-caf7c9d77a05" name="Changes" comment="" />
+      <created>1646944157426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646944157426</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
