@@ -1,6 +1,7 @@
 package co.com.sofka.domain.pedido;
 
 import co.com.sofka.domain.generic.Entity;
+import co.com.sofka.domain.pedido.values.Dinero;
 import co.com.sofka.domain.pedido.values.IdComprador;
 import co.com.sofka.domain.pedido.values.Tarjeta;
 import co.com.sofka.domain.values.DatosPersona;
@@ -24,6 +25,10 @@ public class Comprador extends Entity<IdComprador> {
 
     public void modificarTarjeta(Tarjeta tarjeta) {
         this.tarjeta = Objects.requireNonNull(tarjeta, "La tarjeta no debe ser nula");
+    }
+
+    public void pagarOrden(Dinero coste) {
+        this.tarjeta = this.tarjeta.quitarSaldo(Objects.requireNonNull(coste, "El coste no debe ser nulo"));
     }
 
     public DatosPersona datos() {

@@ -1,26 +1,19 @@
 package co.com.sofka.domain.pedido.event;
 
-import co.com.sofka.domain.comida.values.IdComida;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.pedido.values.MetodoPago;
+import co.com.sofka.domain.pedido.values.InformacionComida;
 
 import java.util.Set;
 
 public class PedidoCreado extends DomainEvent {
-    private final Set<IdComida> idProductos;
-    private final MetodoPago metodoPago;
+    private final Set<InformacionComida> comidas;
 
-    public PedidoCreado(Set<IdComida> idProductos, MetodoPago metodoPago) {
+    public PedidoCreado(Set<InformacionComida> comidas) {
         super("domain.pedido.pedidocreado");
-        this.idProductos = idProductos;
-        this.metodoPago = metodoPago;
+        this.comidas = comidas;
     }
 
-    public Set<IdComida> getIdProductos() {
-        return idProductos;
-    }
-
-    public MetodoPago getMetodoPago() {
-        return metodoPago;
+    public Set<InformacionComida> getComidas() {
+        return comidas;
     }
 }

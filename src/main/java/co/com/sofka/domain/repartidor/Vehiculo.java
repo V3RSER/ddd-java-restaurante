@@ -20,12 +20,10 @@ public class Vehiculo extends Entity<IdVehiculo> {
 
     public void modificarNombre(Nombre nombre) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no debe ser nulo");
-        ;
     }
 
     public void modificarVelocidadMedia(Velocidad velocidadMedia) {
         this.velocidadMedia = Objects.requireNonNull(velocidadMedia, "La velocidad media no debe ser nula");
-        ;
     }
 
     public Velocidad velocidadMedia() {

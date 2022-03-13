@@ -1,27 +1,22 @@
 package co.com.sofka.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.domain.pedido.values.Dinero;
-import co.com.sofka.domain.pedido.values.IdFactura;
-import co.com.sofka.domain.pedido.values.IdPedido;
-import co.com.sofka.domain.pedido.values.TipoFactura;
-import co.com.sofka.domain.values.DatosComida;
-
-import java.util.Set;
+import co.com.sofka.domain.pedido.values.*;
 
 public class GenerarFactura extends Command {
     private final IdPedido idPedido;
     private final IdFactura idFactura;
-    private final Set<DatosComida> datosComidas;
     private final TipoFactura tipo;
     private final Dinero costeEnvio;
+    private final MetodoPago metodoPago;
 
-    public GenerarFactura(IdPedido idPedido, IdFactura idFactura, Set<DatosComida> datosComidas, TipoFactura tipo, Dinero costeEnvio) {
+    public GenerarFactura(
+            IdPedido idPedido, IdFactura idFactura, TipoFactura tipo, Dinero costeEnvio, MetodoPago metodoPago) {
         this.idPedido = idPedido;
         this.idFactura = idFactura;
-        this.datosComidas = datosComidas;
         this.tipo = tipo;
         this.costeEnvio = costeEnvio;
+        this.metodoPago = metodoPago;
     }
 
     public IdPedido getIdPedido() {
@@ -32,15 +27,15 @@ public class GenerarFactura extends Command {
         return idFactura;
     }
 
-    public Set<DatosComida> getDatosComidas() {
-        return datosComidas;
-    }
-
     public TipoFactura getTipo() {
         return tipo;
     }
 
     public Dinero getCosteEnvio() {
         return costeEnvio;
+    }
+
+    public MetodoPago getMetodoPago() {
+        return metodoPago;
     }
 }

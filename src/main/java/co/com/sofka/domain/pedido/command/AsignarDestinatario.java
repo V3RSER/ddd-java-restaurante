@@ -2,6 +2,7 @@ package co.com.sofka.domain.pedido.command;
 
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.domain.pedido.values.Dinero;
+import co.com.sofka.domain.pedido.values.Direccion;
 import co.com.sofka.domain.pedido.values.IdDestinatario;
 import co.com.sofka.domain.pedido.values.IdPedido;
 import co.com.sofka.domain.values.DatosPersona;
@@ -10,13 +11,15 @@ public class AsignarDestinatario extends Command {
     private final IdPedido idPedido;
     private final IdDestinatario idDestinatario;
     private final DatosPersona datosDestinatario;
-    private final Dinero dineroDestinatario;
+    private final Direccion direccionDestinatario;
+    private final Dinero efectivoDestinatario;
 
-    public AsignarDestinatario(IdPedido idPedido, IdDestinatario idDestinatario, DatosPersona datosDestinatario, Dinero dineroDestinatario) {
+    public AsignarDestinatario(IdPedido idPedido, IdDestinatario idDestinatario, DatosPersona datosDestinatario, Direccion direccionDestinatario, Dinero efectivoDestinatario) {
         this.idPedido = idPedido;
         this.idDestinatario = idDestinatario;
         this.datosDestinatario = datosDestinatario;
-        this.dineroDestinatario = dineroDestinatario;
+        this.direccionDestinatario = direccionDestinatario;
+        this.efectivoDestinatario = efectivoDestinatario;
     }
 
     public IdPedido getIdPedido() {
@@ -31,7 +34,11 @@ public class AsignarDestinatario extends Command {
         return datosDestinatario;
     }
 
-    public Dinero getDineroDestinatario() {
-        return dineroDestinatario;
+    public Direccion getDireccionDestinatario() {
+        return direccionDestinatario;
+    }
+
+    public Dinero getEfectivoDestinatario() {
+        return efectivoDestinatario;
     }
 }

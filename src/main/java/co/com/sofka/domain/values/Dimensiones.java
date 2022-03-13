@@ -10,11 +10,11 @@ public class Dimensiones implements ValueObject<Dimensiones.Props> {
     private final Double largo;
     private final Unidad unidad;
 
-    public Dimensiones(Double ancho, Double alto, Double largo, Unidad unidad) {
+    public Dimensiones(Double ancho, Double alto, Double largo) {
         this.ancho = Objects.requireNonNull(ancho, "El ancho no debe ser nulo");
         this.alto = Objects.requireNonNull(alto, "El alto no debe ser nulo");
         this.largo = Objects.requireNonNull(largo, "El largo no debe ser nulo");
-        this.unidad = Objects.requireNonNull(unidad, "La unidad no debe ser nula");
+        this.unidad = Unidad.CM;
         if (this.ancho <= 0.0) {
             throw new IllegalArgumentException("El ancho no es válido");
         }
@@ -27,19 +27,15 @@ public class Dimensiones implements ValueObject<Dimensiones.Props> {
     }
 
     public Dimensiones modificarAncho(Double nuevoAncho) {
-        return new Dimensiones(nuevoAncho, alto, largo, unidad);
+        return new Dimensiones(nuevoAncho, alto, largo);
     }
 
     public Dimensiones modificarAlto(Double nuevoAlto) {
-        return new Dimensiones(ancho, nuevoAlto, largo, unidad);
+        return new Dimensiones(ancho, nuevoAlto, largo);
     }
 
     public Dimensiones modificarLargo(Double nuevoLargo) {
-        return new Dimensiones(ancho, alto, nuevoLargo, unidad);
-    }
-
-    public Dimensiones modificarUnidad(Unidad nuevaUnidad) {
-        return new Dimensiones(ancho, alto, largo, nuevaUnidad);
+        return new Dimensiones(ancho, alto, nuevoLargo);
     }
 
     @Override

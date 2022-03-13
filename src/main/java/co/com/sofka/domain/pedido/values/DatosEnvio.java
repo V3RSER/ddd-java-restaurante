@@ -2,6 +2,7 @@ package co.com.sofka.domain.pedido.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 import co.com.sofka.domain.values.DatosPersona;
+import co.com.sofka.domain.values.Telefono;
 
 import java.util.Objects;
 
@@ -36,8 +37,8 @@ public class DatosEnvio implements ValueObject<DatosEnvio.Props> {
         return new DatosEnvio(datosDestinatario, fechaOrden, fechaEntregaEstimada, nuevaDireccionEntrega);
     }
 
-    public DatosEnvio modificarDatosDestinatario(DatosPersona nuevosDatosDestinatario) {
-        return new DatosEnvio(nuevosDatosDestinatario, fechaOrden, fechaEntregaEstimada, direccionEntrega);
+    public DatosEnvio modificarTelefonoDestinatario(Telefono nuevoTelefono) {
+        return new DatosEnvio(datosDestinatario.modificarTelefono(nuevoTelefono), fechaOrden, fechaEntregaEstimada, direccionEntrega);
     }
 
     @Override

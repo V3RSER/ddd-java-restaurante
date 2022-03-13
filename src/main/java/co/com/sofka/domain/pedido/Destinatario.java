@@ -12,25 +12,26 @@ import java.util.Objects;
 public class Destinatario extends Entity<IdDestinatario> {
     private DatosPersona datos;
     private Direccion direccion;
-    private Dinero dinero;
+    private Dinero efectivo;
 
-    public Destinatario(IdDestinatario idDestinatario, DatosPersona datos, Direccion direccion, Dinero dinero) {
+    public Destinatario(IdDestinatario idDestinatario, DatosPersona datos, Direccion direccion, Dinero efectivo) {
         super(idDestinatario);
         this.datos = datos;
         this.direccion = direccion;
-        this.dinero = dinero;
+        this.efectivo = efectivo;
     }
 
     public void modificarDireccion(Direccion direccion) {
-        this.direccion = Objects.requireNonNull(direccion, "La direccion no debe ser nula");
+        this.direccion = Objects.requireNonNull(direccion, "La dirección no debe ser nula");
     }
 
     public void modificarTelefono(Telefono telefono) {
-        this.datos.modificarTelefono(Objects.requireNonNull(telefono, "El telefono no debe ser nulo"));
+        this.datos.modificarTelefono(Objects.requireNonNull(telefono, "El teléfono no debe ser nulo"));
     }
 
-    public void modificarDinero(Dinero dinero) {
-        this.dinero = Objects.requireNonNull(dinero, "El dinero no debe ser nulo");
+    public void pagarOrden(Dinero coste) {
+        this.efectivo = this.efectivo.quitarDinero(
+                Objects.requireNonNull(coste, "El coste no debe ser nulo"));
     }
 
     public DatosPersona datos() {
@@ -41,7 +42,7 @@ public class Destinatario extends Entity<IdDestinatario> {
         return direccion;
     }
 
-    public Dinero dinero() {
-        return dinero;
+    public Dinero efectivo() {
+        return efectivo;
     }
 }

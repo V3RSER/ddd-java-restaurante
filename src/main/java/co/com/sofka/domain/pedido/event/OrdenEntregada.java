@@ -1,17 +1,17 @@
 package co.com.sofka.domain.pedido.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.pedido.values.IdPedido;
+import co.com.sofka.domain.pedido.values.IdFactura;
 
 public class OrdenEntregada extends DomainEvent {
-    private final IdPedido idOrden;
+    private final IdFactura idFactura;
 
-    public OrdenEntregada(IdPedido idOrden) {
+    public OrdenEntregada(IdFactura idFactura) {
         super("domain.pedido.ordenentregada");
-        this.idOrden = idOrden;
+        this.idFactura = idFactura;
     }
 
-    public IdPedido getIdOrden() {
-        return idOrden;
+    public IdFactura getIdFactura() {
+        return idFactura;
     }
 }

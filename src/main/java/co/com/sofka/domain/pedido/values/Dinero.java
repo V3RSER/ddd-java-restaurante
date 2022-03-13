@@ -11,23 +11,28 @@ public class Dinero implements ValueObject<Dinero.Props> {
     public Dinero(Double cantidad, String moneda) {
         this.cantidad = Objects.requireNonNull(cantidad, "La cantidad no debe ser nula");
         this.moneda = Objects.requireNonNull(moneda, "La moneda no debe ser nula");
-        if (this.cantidad < 0.0) {
-            throw new IllegalArgumentException("La cantidad no es válida");
-        }
         if (this.moneda.isBlank()) {
             throw new IllegalArgumentException("La moneda es requerida");
         }
     }
 
-    public Dinero quitarDinero(Double nuevaCantidad) {
-        if (this.cantidad - nuevaCantidad < 0.0) {
-            throw new IllegalArgumentException("No hay fondos suficientes");
+    public Dinero(Double cantidad) {
+        this.cantidad = Objects.requireNonNull(cantidad, "La cantidad no debe ser nula");
+        this.moneda = "COP";
+        if (this.cantidad < 0.0) {
+            throw new IllegalArgumentException("La cantidad no es válida");
         }
-        return new Dinero(cantidad - nuevaCantidad, moneda);
     }
 
-    public Dinero agregarDinero(Double nuevaCantidad) {
-        return new Dinero(cantidad + nuevaCantidad, moneda);
+    public Dinero quitarDinero(Dinero dineroAQuitar) {
+        if (cantidad - dineroAQuitar.value().cantidad() < 0.0) {
+            throw new IllegalArgumentException("No hay fondos suficientes");
+        }
+        return new Dinero(cantidad - dineroAQuitar.value().cantidad(), moneda);
+    }
+
+    public Dinero agregarDinero(Dinero dineroAAgregar) {
+        return new Dinero(cantidad + dineroAAgregar.value().cantidad(), moneda);
     }
 
     @Override

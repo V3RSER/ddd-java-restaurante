@@ -3,11 +3,11 @@ package co.com.sofka.domain.pedido.event;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.values.Telefono;
 
-public class TelefonoCompradorActualizado extends DomainEvent {
+public class TelefonoOrdenActualizado extends DomainEvent {
     private final Telefono telefono;
 
-    public TelefonoCompradorActualizado(Telefono telefono) {
-        super("domain.pedido.telefonocompradoractualizado");
+    public TelefonoOrdenActualizado(Telefono telefono) {
+        super("domain.pedido.telefonoordenactualizado");
         this.telefono = telefono;
     }
 
