@@ -1,7 +1,5 @@
 package co.com.sofka.domain.comida;
 
-import co.com.sofka.domain.comida.Ingrediente;
-import co.com.sofka.domain.comida.Recipiente;
 import co.com.sofka.domain.comida.event.*;
 import co.com.sofka.domain.comida.values.IdComida;
 import co.com.sofka.domain.comida.values.IdIngrediente;
@@ -25,39 +23,39 @@ public class Comida extends AggregateEvent<IdComida> {
         appendChange(new ComidaCreada(datos, ingredientes)).apply();
     }
 
-    public void ActualizarNombre(Nombre nombre) {
+    public void actualizarNombre(Nombre nombre) {
         appendChange(new NombreActualizado(nombre)).apply();
     }
 
-    public void ActualizarDescripcion(Descripcion descripcion) {
+    public void actualizarDescripcion(Descripcion descripcion) {
         appendChange(new DescripcionActualizada(descripcion)).apply();
     }
 
-    public void AgregarIngrediente(IdIngrediente idIngrediente, Nombre nombre, Descripcion descripcion) {
+    public void agregarIngrediente(IdIngrediente idIngrediente, Nombre nombre, Descripcion descripcion) {
         appendChange(new IngredienteAgregado(idIngrediente, nombre, descripcion)).apply();
     }
 
-    public void ActualizarIngrediente(IdIngrediente idIngrediente, Nombre nombre, Descripcion descripcion) {
+    public void actualizarIngrediente(IdIngrediente idIngrediente, Nombre nombre, Descripcion descripcion) {
         appendChange(new IngredienteActualizado(idIngrediente, nombre, descripcion)).apply();
     }
 
-    public void ActualizarNombreIngrediente(IdIngrediente idIngrediente, Nombre nombre) {
+    public void actualizarNombreIngrediente(IdIngrediente idIngrediente, Nombre nombre) {
         appendChange(new NombreIngredienteActualizado(idIngrediente, nombre)).apply();
     }
 
-    public void ActualizarDescripcionIngrediente(IdIngrediente idIngrediente, Descripcion descripcion) {
+    public void actualizarDescripcionIngrediente(IdIngrediente idIngrediente, Descripcion descripcion) {
         appendChange(new DescripcionIngredienteActualizada(idIngrediente, descripcion)).apply();
     }
 
-    public void QuitarIngrediente(IdIngrediente idIngrediente) {
+    public void quitarIngrediente(IdIngrediente idIngrediente) {
         appendChange(new IngredienteQuitado(idIngrediente)).apply();
     }
 
-    public void AgregarRecipiente(IdRecipiente idRecipiente, Dimensiones dimensiones) {
+    public void agregarRecipiente(IdRecipiente idRecipiente, Dimensiones dimensiones) {
         appendChange(new RecipienteAgregado(idRecipiente, dimensiones)).apply();
     }
 
-    public void ActualizarRecipiente(IdRecipiente idRecipiente, Dimensiones dimensiones) {
+    public void actualizarRecipiente(IdRecipiente idRecipiente, Dimensiones dimensiones) {
         appendChange(new RecipienteActualizado(idRecipiente, dimensiones)).apply();
     }
 

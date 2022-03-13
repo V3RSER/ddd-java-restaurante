@@ -26,55 +26,55 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new DestinatarioAsignado(idDestinatario, datosDestinatario, dineroDestinatario)).apply();
     }
 
-    public void ActualizarTarjetaComprador(IdComprador idComprador, Tarjeta tarjeta) {
+    public void actualizarTarjetaComprador(IdComprador idComprador, Tarjeta tarjeta) {
         appendChange(new TarjetaCompradorActualizada(idComprador, tarjeta)).apply();
     }
 
-    public void ActualizarTelefonoComprador(IdComprador idComprador, Telefono telefono) {
+    public void actualizarTelefonoComprador(IdComprador idComprador, Telefono telefono) {
         appendChange(new TelefonoCompradorActualizado(idComprador, telefono)).apply();
     }
 
-    public void ActualizarDireccionDestinatario(IdDestinatario idDestinatario, Direccion direccion) {
+    public void actualizarDireccionDestinatario(IdDestinatario idDestinatario, Direccion direccion) {
         appendChange(new DireccionDestinatarioActualizada(idDestinatario, direccion)).apply();
     }
 
-    public void ActualizarTelefonoDestinatario(IdDestinatario idDestinatario, Telefono telefono) {
+    public void actualizarTelefonoDestinatario(IdDestinatario idDestinatario, Telefono telefono) {
         appendChange(new TelefonoDestinatarioActualizado(idDestinatario, telefono)).apply();
     }
 
-    public void GenerarOrden(IdOrden idOrden, DatosEnvio datosEnvio,
+    public void generarOrden(IdOrden idOrden, DatosEnvio datosEnvio,
                              Set<DatosComida> datosComidas, NombrePersona nombreComprador) {
         appendChange(new OrdenGenerada(idOrden, datosEnvio, datosComidas, nombreComprador)).apply();
     }
 
-    public void ActualizarOrden(IdOrden idOrden, DatosEnvio datosEnvio,
+    public void actualizarOrden(IdOrden idOrden, DatosEnvio datosEnvio,
                                 Set<DatosComida> datosComidas, NombrePersona nombreComprador) {
         appendChange(new OrdenActualizada(idOrden, datosEnvio, datosComidas, nombreComprador)).apply();
     }
 
-    public void ActualizarDatosDestinatarioOrden(IdOrden idOrden, DatosPersona datosDestinatario) {
+    public void actualizarDatosDestinatarioOrden(IdOrden idOrden, DatosPersona datosDestinatario) {
         appendChange(new DatosDestinatarioActualizados(idOrden, datosDestinatario)).apply();
     }
 
-    public void ActualizarDireccionEntregaOrden(IdOrden idOrden, Direccion direccionEntrega) {
+    public void actualizarDireccionEntregaOrden(IdOrden idOrden, Direccion direccionEntrega) {
         appendChange(new DireccionEntregaActualizada(idOrden, direccionEntrega)).apply();
     }
 
-    public void EntregarOrden(IdPedido idOrden) {
+    public void entregarOrden(IdPedido idOrden) {
         appendChange(new OrdenEntregada(idOrden)).apply();
     }
 
-    public void GenerarFactura(IdFactura idFactura, Set<DatosComida> datosComidas,
+    public void generarFactura(IdFactura idFactura, Set<DatosComida> datosComidas,
                                TipoFactura tipo, Dinero costeEnvio) {
         appendChange(new FacturaGenerada(idFactura, datosComidas, tipo, costeEnvio)).apply();
     }
 
-    public void ActualizarFactura(IdFactura idFactura, Set<DatosComida> datosComidas,
+    public void actualizarFactura(IdFactura idFactura, Set<DatosComida> datosComidas,
                                   TipoFactura tipo, Dinero costeEnvio) {
         appendChange(new FacturaActualizada(idFactura, datosComidas, tipo, costeEnvio)).apply();
     }
 
-    public void ActualizarTipoFactura(IdFactura idFactura, TipoFactura tipo) {
+    public void actualizarTipoFactura(IdFactura idFactura, TipoFactura tipo) {
         appendChange(new TipoFacturaActualizada(idFactura, tipo)).apply();
     }
 

@@ -19,39 +19,39 @@ public class Repartidor extends AggregateEvent<IdRepartidor> {
         appendChange(new RepartidorCreado(datos)).apply();
     }
 
-    public void ActualizarTelefono(Telefono telefono) {
+    public void actualizarTelefono(Telefono telefono) {
         appendChange(new TelefonoActualizado(telefono)).apply();
     }
 
-    public void AgregarMochila(IdMochila idMochila, Dimensiones dimensiones) {
+    public void agregarMochila(IdMochila idMochila, Dimensiones dimensiones) {
         appendChange(new MochilaAgregada(idMochila, dimensiones)).apply();
     }
 
-    public void ActualizarMochila(IdMochila idMochila, Dimensiones dimensiones) {
+    public void actualizarMochila(IdMochila idMochila, Dimensiones dimensiones) {
         appendChange(new MochilaActualizada(idMochila, dimensiones)).apply();
     }
 
-    public void AgregarVehiculo(IdVehiculo idVehiculo, Nombre nombre, Velocidad velocidadMedia) {
+    public void agregarVehiculo(IdVehiculo idVehiculo, Nombre nombre, Velocidad velocidadMedia) {
         appendChange(new VehiculoAgregado(idVehiculo, nombre, velocidadMedia)).apply();
     }
 
-    public void ActualizarVehiculo(IdVehiculo idVehiculo, Nombre nombre, Velocidad velocidadMedia) {
+    public void actualizarVehiculo(IdVehiculo idVehiculo, Nombre nombre, Velocidad velocidadMedia) {
         appendChange(new VehiculoActualizado(idVehiculo, nombre, velocidadMedia)).apply();
     }
 
-    public void AgregarZona(IdZona idZona, Ciudad ciudad) {
+    public void agregarZona(IdZona idZona, Ciudad ciudad) {
         appendChange(new ZonaAgregada(idZona, ciudad)).apply();
     }
 
-    public void ActualizarZona(IdZona idZona, Ciudad ciudad) {
+    public void actualizarZona(IdZona idZona, Ciudad ciudad) {
         appendChange(new ZonaActualizada(idZona, ciudad)).apply();
     }
 
-    public void AsignarPedido(IdPedido pedido) {
+    public void asignarPedido(IdPedido pedido) {
         appendChange(new PedidoAsignado(pedido)).apply();
     }
 
-    public void QuitarPedido(IdPedido pedido) {
+    public void quitarPedido(IdPedido pedido) {
         appendChange(new PedidoQuitado(pedido)).apply();
     }
 
