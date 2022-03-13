@@ -14,7 +14,6 @@ public class Pedido extends AggregateEvent<IdPedido> {
     protected Destinatario destinatario;
     protected MetodoPago metodoPago;
     protected Dimensiones dimensionesPaquete;
-    protected EstadoPedido estado;
     protected Orden orden;
     protected Factura factura;
 
@@ -53,6 +52,18 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new OrdenActualizada(idOrden, datosEnvio, datosComidas, nombreComprador)).apply();
     }
 
+    public void ActualizarDatosDestinatarioOrden(IdOrden idOrden, DatosPersona datosDestinatario) {
+        appendChange(new DatosDestinatarioActualizados(idOrden, datosDestinatario)).apply();
+    }
+
+    public void ActualizarDireccionEntregaOrden(IdOrden idOrden, Direccion direccionEntrega) {
+        appendChange(new DireccionEntregaActualizada(idOrden, direccionEntrega)).apply();
+    }
+
+    public void EntregarOrden(IdPedido idOrden) {
+        appendChange(new OrdenEntregada(idOrden)).apply();
+    }
+
     public void GenerarFactura(IdFactura idFactura, Set<DatosComida> datosComidas,
                                TipoFactura tipo, Dinero costeEnvio) {
         appendChange(new FacturaGenerada(idFactura, datosComidas, tipo, costeEnvio)).apply();
@@ -85,10 +96,6 @@ public class Pedido extends AggregateEvent<IdPedido> {
 
     public Dimensiones dimensionesPaquete() {
         return dimensionesPaquete;
-    }
-
-    public EstadoPedido estado() {
-        return estado;
     }
 
     public Orden orden() {

@@ -4,10 +4,10 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class EstadoPedido implements ValueObject<EstadoPedido.Fase> {
+public class EstadoOrden implements ValueObject<EstadoOrden.Fase> {
     private final Fase estado;
 
-    public EstadoPedido(Fase estado) {
+    public EstadoOrden(Fase estado) {
         this.estado = Objects.requireNonNull(estado, "El estado no debe ser nulo");
     }
 

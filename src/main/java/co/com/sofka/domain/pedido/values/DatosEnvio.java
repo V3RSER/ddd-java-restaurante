@@ -36,6 +36,10 @@ public class DatosEnvio implements ValueObject<DatosEnvio.Props> {
         return new DatosEnvio(datosDestinatario, fechaOrden, fechaEntregaEstimada, nuevaDireccionEntrega);
     }
 
+    public DatosEnvio modificarDatosDestinatario(DatosPersona nuevosDatosDestinatario) {
+        return new DatosEnvio(nuevosDatosDestinatario, fechaOrden, fechaEntregaEstimada, direccionEntrega);
+    }
+
     @Override
     public Props value() {
         return new Props() {
