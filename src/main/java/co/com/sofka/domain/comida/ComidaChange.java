@@ -30,7 +30,7 @@ public class ComidaChange extends EventChange {
 
         apply((IngredienteActualizado event) -> {
             comida.ingredientes.stream()
-                    .filter(ingrediente -> ingrediente.identity().equals(event.getIdIngrediente()))
+                    .filter(ingrediente -> ingrediente.identity().value().equals(event.getIdIngrediente().value()))
                     .forEach(ingrediente -> {
                         ingrediente.modificarNombre(event.getNombre());
                         ingrediente.modificarDescripcion(event.getDescripcion());
@@ -39,7 +39,7 @@ public class ComidaChange extends EventChange {
 
         apply((NombreIngredienteActualizado event) -> {
             comida.ingredientes.stream()
-                    .filter(ingrediente -> ingrediente.identity().equals(event.getIdIngrediente()))
+                    .filter(ingrediente -> ingrediente.identity().value().equals(event.getIdIngrediente().value()))
                     .forEach(ingrediente -> {
                         ingrediente.modificarNombre(event.getNombre());
                     });
@@ -47,7 +47,7 @@ public class ComidaChange extends EventChange {
 
         apply((DescripcionIngredienteActualizada event) -> {
             comida.ingredientes.stream()
-                    .filter(ingrediente -> ingrediente.identity().equals(event.getIdIngrediente()))
+                    .filter(ingrediente -> ingrediente.identity().value().equals(event.getIdIngrediente().value()))
                     .forEach(ingrediente -> {
                         ingrediente.modificarDescripcion(event.getDescripcion());
                     });
@@ -55,7 +55,7 @@ public class ComidaChange extends EventChange {
 
         apply((IngredienteQuitado event) -> {
             comida.ingredientes.removeIf(
-                    ingrediente -> ingrediente.identity().equals(event.getIdIngrediente()));
+                    ingrediente -> ingrediente.identity().value().equals(event.getIdIngrediente().value()));
         });
 
         apply((RecipienteAgregado event) -> {

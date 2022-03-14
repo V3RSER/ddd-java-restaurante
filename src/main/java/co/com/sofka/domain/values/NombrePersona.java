@@ -11,10 +11,10 @@ public class NombrePersona implements ValueObject<NombrePersona.Props> {
     public NombrePersona(String nombre, String apellido) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no debe ser nulo");
         this.apellido = Objects.requireNonNull(apellido, "El apellido no debe ser nulo");
-        if (this.nombre.length() <= 5) {
+        if (this.nombre.length() < 3) {
             throw new IllegalArgumentException("El nombre es demasiado corto");
         }
-        if (this.apellido.length() <= 5) {
+        if (this.apellido.length() < 3) {
             throw new IllegalArgumentException("El apellido es demasiado corto");
         }
     }

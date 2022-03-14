@@ -30,10 +30,6 @@ public class Mochila extends Entity<IdMochila> {
         this.dimensiones = dimensiones.modificarLargo(nuevoLargo);
     }
 
-    public void modificarUnidad(Dimensiones.Unidad nuevaUnidad) {
-        this.dimensiones = dimensiones.modificarUnidad(nuevaUnidad);
-    }
-
     public Dimensiones dimensiones() {
         return dimensiones;
     }

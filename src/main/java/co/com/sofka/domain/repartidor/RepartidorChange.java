@@ -42,7 +42,7 @@ public class RepartidorChange extends EventChange {
         });
 
         apply((PedidoAsignado event) -> {
-            if (!repartidor.zona.ciudad().equals(event.getDatosEnvio().value().direccionEntrega().value().ciudad())) {
+            if (!repartidor.zona.ciudad().value().value().equals(event.getDatosEnvio().value().direccionEntrega().value().ciudad().value().value())) {
                 throw new IllegalArgumentException(
                         "El repartidor no corresponde a la zona del pedido");
             }
@@ -59,7 +59,7 @@ public class RepartidorChange extends EventChange {
 
         apply((PedidoQuitado event) -> {
             repartidor.pedidos.removeIf(
-                    informacionPedido -> informacionPedido.value().idPedido().equals(event.getPedido()));
+                    informacionPedido -> informacionPedido.value().idPedido().value().equals(event.getPedido().value()));
         });
     }
 }

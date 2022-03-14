@@ -84,7 +84,7 @@ public class PedidoChange extends EventChange {
         });
 
         apply((OrdenEntregada event) -> {
-            if (!pedido.factura.identity().equals(event.getIdFactura())) {
+            if (!pedido.factura.identity().value().equals(event.getIdFactura().value())) {
                 throw new IllegalArgumentException(
                         "Un id de factura válido es requerido");
             }
