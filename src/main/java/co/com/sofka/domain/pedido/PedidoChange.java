@@ -35,11 +35,14 @@ public class PedidoChange extends EventChange {
         });
 
         apply((OrdenGenerada event) -> {
+            if (!pedido.destinatario.identity().value().equals(event.getIdDestinatario().value())) {
+                throw new IllegalArgumentException("Un id de destinatario válido es requerido");
+            }
             pedido.orden = new Orden(
                     event.getIdOrden(),
                     new DatosEnvio(
                             pedido.destinatario.datos(),
-                            new Fecha(LocalDateTime.now().plusMinutes(60)), // TODO: 13/03/2022 Logica de tiempo promedio de entrega
+                            new Fecha(LocalDateTime.now().plusMinutes(60)), // TODO: 13/03/2022 Mejorar lógica de tiempo promedio de entrega
                             pedido.destinatario.direccion()
                     ),
                     pedido.comidas.stream().map(comida -> comida.value().datosComida()).collect(Collectors.toSet())
@@ -53,6 +56,9 @@ public class PedidoChange extends EventChange {
         });
 
         apply((FacturaGenerada event) -> {
+            if (!pedido.comprador.identity().value().equals(event.getIdComprador().value())) {
+                throw new IllegalArgumentException("Un id de comprador válido es requerido");
+            }
             pedido.factura = new Factura(
                     event.getIdFactura(),
                     pedido.comidas.stream().map(comida -> comida.value().datosComida()).collect(Collectors.toSet()),
@@ -85,8 +91,7 @@ public class PedidoChange extends EventChange {
 
         apply((OrdenEntregada event) -> {
             if (!pedido.factura.identity().value().equals(event.getIdFactura().value())) {
-                throw new IllegalArgumentException(
-                        "Un id de factura válido es requerido");
+                throw new IllegalArgumentException("Un id de factura válido es requerido");
             }
             // Si se eligió método de pago por efectivo, se le pide el monto al destinatario
             if (pedido.factura.metodoPago().value().equals(MetodoPago.Tipo.EFECTIVO)

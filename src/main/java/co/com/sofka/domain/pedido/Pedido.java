@@ -19,18 +19,9 @@ public class Pedido extends AggregateEvent<IdPedido> {
     protected Comprador comprador;
     protected Factura factura;
 
-    public Pedido(IdPedido idPedido, Set<InformacionComida> comidas,
-                  IdDestinatario idDestinatario, DatosPersona datosDestinatario,
-                  Direccion direccionDestinatario, Dinero efectivoDestinatario, IdOrden idOrden,
-                  IdComprador idComprador, DatosPersona datosComprador, Tarjeta tarjetaComprador,
-                  IdFactura idFactura, TipoFactura tipo, Dinero costeEnvio, MetodoPago metodoPago) {
+    public Pedido(IdPedido idPedido, Set<InformacionComida> comidas) {
         super(idPedido);
         appendChange(new PedidoCreado(comidas)).apply();
-        appendChange(new DestinatarioAsignado(
-                idDestinatario, datosDestinatario, direccionDestinatario, efectivoDestinatario)).apply();
-        appendChange(new OrdenGenerada(idOrden)).apply();
-        appendChange(new CompradorAsignado(idComprador, datosComprador, tarjetaComprador)).apply();
-        appendChange(new FacturaGenerada(idFactura, tipo, costeEnvio, metodoPago)).apply();
         subscribe(new PedidoChange(this));
     }
 
@@ -45,14 +36,27 @@ public class Pedido extends AggregateEvent<IdPedido> {
         return pedido;
     }
 
+    public void asignarDestinatario(IdDestinatario idDestinatario, DatosPersona datosDestinatario,
+                                    Direccion direccionDestinatario, Dinero efectivoDestinatario) {
+        appendChange(new DestinatarioAsignado(
+                idDestinatario, datosDestinatario, direccionDestinatario, efectivoDestinatario)).apply();
+
+    }
+
     public void actualizarDireccionDestinatario(Direccion direccion) {
         appendChange(new DireccionDestinatarioActualizada(direccion)).apply();
-        appendChange(new DireccionEntregaActualizada(direccion)).apply();
     }
 
     public void actualizarTelefonoDestinatario(Telefono telefono) {
         appendChange(new TelefonoDestinatarioActualizado(telefono)).apply();
-        appendChange(new TelefonoOrdenActualizado(telefono)).apply();
+    }
+
+    public void generarOrden(IdOrden idOrden, IdDestinatario idDestinatario) {
+        appendChange(new OrdenGenerada(idOrden, idDestinatario)).apply();
+    }
+
+    public void entregarOrden(IdFactura idFactura) {
+        appendChange(new OrdenEntregada(idFactura)).apply();
     }
 
     public void actualizarDireccionEntregaOrden(Direccion direccionEntrega) {
@@ -63,8 +67,8 @@ public class Pedido extends AggregateEvent<IdPedido> {
         appendChange(new TelefonoOrdenActualizado(telefono)).apply();
     }
 
-    public void entregarOrden(IdFactura idFactura) {
-        appendChange(new OrdenEntregada(idFactura)).apply();
+    public void asignarComprador(IdComprador idComprador, DatosPersona datosComprador, Tarjeta tarjetaComprador) {
+        appendChange(new CompradorAsignado(idComprador, datosComprador, tarjetaComprador)).apply();
     }
 
     public void actualizarTarjetaComprador(Tarjeta tarjeta) {
@@ -73,6 +77,11 @@ public class Pedido extends AggregateEvent<IdPedido> {
 
     public void actualizarTelefonoComprador(Telefono telefono) {
         appendChange(new TelefonoCompradorActualizado(telefono)).apply();
+    }
+
+    public void generarFactura(IdFactura idFactura, TipoFactura tipo, Dinero costeEnvio, MetodoPago metodoPago,
+                               IdComprador idComprador) {
+        appendChange(new FacturaGenerada(idFactura, tipo, costeEnvio, metodoPago, idComprador)).apply();
     }
 
     public void actualizarTipoFactura(TipoFactura tipo) {

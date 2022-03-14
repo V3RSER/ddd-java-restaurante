@@ -16,4 +16,8 @@ public class ActualizarTipoFacturaCommand extends Command {
     public IdPedido getIdPedido() {
         return idPedido;
     }
+
+    public TipoFactura getTipo() {
+        return tipo;
+    }
 }

@@ -9,7 +9,7 @@ public class Nombre implements ValueObject<String> {
 
     public Nombre(String nombre) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no debe ser nulo");
-        if (this.nombre.length() <= 5) {
+        if (this.nombre.length() < 3) {
             throw new IllegalArgumentException("El nombre es demasiado corto");
         }
     }

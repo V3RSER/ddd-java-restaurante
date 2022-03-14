@@ -56,13 +56,15 @@ class AsignarPedidoUseCaseTest {
 
         var event = (PedidoAsignado) events.get(0);
         Assertions.assertEquals("domain.repartidor.pedidoasignado", event.type);
+        Assertions.assertEquals("pppp", event.getIdPedido().value());
+        Assertions.assertEquals(idRepartidor.value(), event.aggregateRootId());
     }
 
     private List<DomainEvent> history() {
         return List.of(
             new RepartidorCreado(new DatosPersona(new NombrePersona("Cristian", "Cabarcas"), new Telefono("699990"))),
             new MochilaAgregada(IdMochila.of("mmmm"), new Dimensiones(40.0, 60.0, 60.0)),
-            new ZonaAgregada(IdZona.of("mmmm"), new Ciudad(new Nombre("Cartagena")))
+            new ZonaAgregada(IdZona.of("zzzz"), new Ciudad(new Nombre("Cartagena")))
         );
     }
 }

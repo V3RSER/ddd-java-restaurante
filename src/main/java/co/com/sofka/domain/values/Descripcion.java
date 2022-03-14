@@ -9,7 +9,7 @@ public class Descripcion implements ValueObject<String> {
 
     public Descripcion(String descripcion) {
         this.descripcion = Objects.requireNonNull(descripcion, "El descripcion no debe ser nulo");
-        if (this.descripcion.length() <= 5) {
+        if (this.descripcion.length() < 3) {
             throw new IllegalArgumentException("La descripción es demasiado corta");
         }
     }
