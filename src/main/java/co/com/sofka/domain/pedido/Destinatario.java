@@ -10,7 +10,7 @@ import co.com.sofka.domain.values.Telefono;
 import java.util.Objects;
 
 public class Destinatario extends Entity<IdDestinatario> {
-    private DatosPersona datos;
+    private final DatosPersona datos;
     private Direccion direccion;
     private Dinero efectivo;
 

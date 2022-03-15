@@ -11,9 +11,9 @@ import java.util.Set;
 public class Factura extends Entity<IdFactura> {
     private final Set<DatosComida> datosComidas;
     private TipoFactura tipo;
-    private Dinero costeEnvio;
-    private Dinero costeTotal;
-    private MetodoPago metodoPago;
+    private final Dinero costeEnvio;
+    private final Dinero costeTotal;
+    private final MetodoPago metodoPago;
     private NombrePersona nombreComprador;
     private EstadoFactura estado;
 
@@ -30,19 +30,22 @@ public class Factura extends Entity<IdFactura> {
     }
 
     public void modificarTipoFactura(TipoFactura tipo) {
-        if (this.estado.value().equals(EstadoFactura.Fase.PAGADO)) {
+        if (this.estado.value().equals(EstadoFactura.Fase.NO_PAGADO)) {
             this.tipo = Objects.requireNonNull(tipo, "La tipo de factura no debe ser nula");
+        } else {
+            throw new IllegalArgumentException("No se puede modificar la factura");
         }
-        throw new IllegalArgumentException("No se puede modificar la factura");
     }
 
     public void asignarComprador(NombrePersona nombreComprador) {
-        if (this.estado.value().equals(EstadoFactura.Fase.PAGADO)) {
+        System.out.println(EstadoFactura.Fase.values());
+        if (this.estado.value().equals(EstadoFactura.Fase.NO_PAGADO)) {
             this.nombreComprador = Objects.requireNonNull(nombreComprador,
                     "El nombre del comprador no debe ser nulo");
             this.estado = new EstadoFactura(EstadoFactura.Fase.PAGADO);
+        } else {
+            throw new IllegalArgumentException("No se puede modificar la factura");
         }
-        throw new IllegalArgumentException("No se puede modificar la factura");
     }
 
     public Set<DatosComida> datosComidas() {

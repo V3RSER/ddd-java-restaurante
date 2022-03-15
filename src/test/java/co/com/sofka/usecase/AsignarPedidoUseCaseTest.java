@@ -62,9 +62,9 @@ class AsignarPedidoUseCaseTest {
 
     private List<DomainEvent> history() {
         return List.of(
-            new RepartidorCreado(new DatosPersona(new NombrePersona("Cristian", "Cabarcas"), new Telefono("699990"))),
-            new MochilaAgregada(IdMochila.of("mmmm"), new Dimensiones(40.0, 60.0, 60.0)),
-            new ZonaAgregada(IdZona.of("zzzz"), new Ciudad(new Nombre("Cartagena")))
+                new RepartidorCreado(new DatosPersona(new NombrePersona("Cristian", "Cabarcas"), new Telefono("699990"))),
+                new MochilaAgregada(IdMochila.of("mmmm"), new Dimensiones(40.0, 60.0, 60.0)),
+                new ZonaAgregada(IdZona.of("zzzz"), new Ciudad(new Nombre("Cartagena")))
         );
     }
 }

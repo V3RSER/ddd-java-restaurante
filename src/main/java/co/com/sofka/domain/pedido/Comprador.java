@@ -10,7 +10,7 @@ import co.com.sofka.domain.values.Telefono;
 import java.util.Objects;
 
 public class Comprador extends Entity<IdComprador> {
-    private DatosPersona datos;
+    private final DatosPersona datos;
     private Tarjeta tarjeta;
 
     public Comprador(IdComprador idComprador, DatosPersona datos, Tarjeta tarjeta) {

@@ -35,9 +35,14 @@ public class PedidoChange extends EventChange {
         });
 
         apply((OrdenGenerada event) -> {
-            if (!pedido.destinatario.identity().value().equals(event.getIdDestinatario().value())) {
-                throw new IllegalArgumentException("Un id de destinatario válido es requerido");
+            try {
+                if (!pedido.destinatario.identity().value().equals(event.getIdDestinatario().value())) {
+                    throw new IllegalArgumentException("Un id de destinatario válido es requerido");
+                }
+            } catch (Exception e) {
+                throw new IllegalArgumentException("El destinatario no existe");
             }
+
             pedido.orden = new Orden(
                     event.getIdOrden(),
                     new DatosEnvio(
@@ -56,9 +61,14 @@ public class PedidoChange extends EventChange {
         });
 
         apply((FacturaGenerada event) -> {
-            if (!pedido.comprador.identity().value().equals(event.getIdComprador().value())) {
-                throw new IllegalArgumentException("Un id de comprador válido es requerido");
+            try {
+                if (!pedido.comprador.identity().value().equals(event.getIdComprador().value())) {
+                    throw new IllegalArgumentException("Un id de comprador válido es requerido");
+                }
+            } catch (Exception e) {
+                throw new IllegalArgumentException("El comprador no existe");
             }
+
             pedido.factura = new Factura(
                     event.getIdFactura(),
                     pedido.comidas.stream().map(comida -> comida.value().datosComida()).collect(Collectors.toSet()),
@@ -90,8 +100,12 @@ public class PedidoChange extends EventChange {
         });
 
         apply((OrdenEntregada event) -> {
-            if (!pedido.factura.identity().value().equals(event.getIdFactura().value())) {
-                throw new IllegalArgumentException("Un id de factura válido es requerido");
+            try {
+                if (!pedido.factura.identity().value().equals(event.getIdFactura().value())) {
+                    throw new IllegalArgumentException("Un id de factura válido es requerido");
+                }
+            } catch (Exception e) {
+                throw new IllegalArgumentException("La factura no existe");
             }
             // Si se eligió método de pago por efectivo, se le pide el monto al destinatario
             if (pedido.factura.metodoPago().value().equals(MetodoPago.Tipo.EFECTIVO)
